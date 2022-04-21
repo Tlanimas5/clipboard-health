@@ -22,21 +22,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class getProductDetails {
 	public static void main(String[] args) throws InterruptedException {
 		
+		//chrome driver setup
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		
-//		Capabilities caps = ((RemoteWebDriver) driver).getCapabilities();
-//		String browserVersion = caps.getBrowserVersion();
-//		System.out.print(browserVersion);
-//
-//		WebDriverManager.chromedriver().driverVersion(browserVersion).setup();
-
-		//maximize the browwser window
+		//maximize the browser window
 		driver.manage().window().maximize();
 		
 		//navigate to the page
 		driver.get("https://www.amazon.in/");
 		
+		//-------------------------------------POM 1----------------------------------
 		//verify user is on the desired page and elements have loaded successfully
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nav-logo-sprites")));
@@ -75,6 +71,7 @@ public class getProductDetails {
 		wait.until(ExpectedConditions.elementToBeClickable(televisions));
 		televisions.click();
 		
+		//---------------------------------POM 2------------------------------------------
 		//Verify user is on page with Televisions
 		String televisionPageTitle = driver.getTitle();
 		assert televisionPageTitle.matches("Buy the latest LED TVs, 4K TVs and Android TVs online at Best Prices in India-Amazon.in | Shop by size, price, features and more");
@@ -107,6 +104,8 @@ public class getProductDetails {
 		assert resultsLabel == "RESULTS";
 		WebElement secondItem = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[3]/div[2]/div[3]/div/div/div/div/div[2]/div[1]/h2/a")));
 		secondItem.click();
+		
+		//------------------------------------------POM 3---------------------------------------------
 
 		//Storing the number of windows opened
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
