@@ -18,13 +18,16 @@ public class LandingPage {
 	public LandingPage(WebDriver driver) {
 		this.driver=driver;
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
 	}
 	
-	//Locator for Amazon logo
+	//Locator for Elements on the Landing_Page
 	By navLogo = By.id("nav-logo-sprites");
 	By pageMenu = By.id("nav-hamburger-menu");
 	String customerName = "hmenu-customer-name";
 	String mainMenuLabel = "//*[text()='main menu']";
+	//JavascriptExecutor js = (JavascriptExecutor) driver;
+	String newline = System.lineSeparator();
 	
 	//Method to capture the page title
 	public void getPageTitle(String title) {
@@ -61,7 +64,6 @@ public class LandingPage {
 		
 		WebElement mainMenu = driver.findElement(By.xpath(mainMenuLabel));
 		mainMenu.isDisplayed();
-		String newline = System.lineSeparator();
 		System.out.print("User is on Menu"+ newline);
 		
 		WebElement subCat = driver.findElement(By.linkText(categoryOnMenu));
@@ -70,6 +72,5 @@ public class LandingPage {
 		wait.until(ExpectedConditions.elementToBeClickable(subCat));
 		subCat.click();
 	}
-	
 
 }
