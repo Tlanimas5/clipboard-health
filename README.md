@@ -1,6 +1,6 @@
 ## Take Home Assessment Test - ClipBoard-health
 
-**Author:** Fiyin Akinrimisi
+- **Author:** Fiyin Akinrimisi
 **Created:** April 2022
 **Scope:** Selenium web automation on Amazon.in to retrieve "About Item" details of a Product
 
