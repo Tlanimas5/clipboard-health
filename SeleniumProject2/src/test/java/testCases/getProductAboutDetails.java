@@ -62,7 +62,7 @@ public class getProductAboutDetails {
 		//verify page title on landing Page
 		home.getPageTitle(pgTitle);
 		
-		//verify hamburger icon is present, click and open menu
+		//verify hamburger icon is present, click and open the menu
 		home.hambugerMenu();
 		
 		//verify menu is open by vetting name is displayed
@@ -96,6 +96,7 @@ public class getProductAboutDetails {
 		
 		
 		driver.quit();
+		//clear all chromedriver.exe processes from memory
 		Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
 	}
 
