@@ -4,8 +4,11 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 //import Pages.Dashboard;
 //import Pages.HomePage;
 import Pages.LandingPage;
@@ -18,10 +21,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class getProductAboutDetails {
 	
 	public static void main(String[] args) throws InterruptedException, IOException {
-
+		
+		//page loading strategy setup
+		ChromeOptions chrome = new ChromeOptions();
+		chrome.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+		
 		//chrome driver setup
 		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver(chrome);
 		
 		//Set data for input and verification
 		String pgTitle = "Amazon.in";
@@ -69,6 +76,7 @@ public class getProductAboutDetails {
 		
 		//verify page title on the category/brand Page
 		brand.getCategoryTitle(brandPageTitle);
+		
 		
 		//selects and verifies brand to filter product category by using the displayed text value on of the brand
 		brand.brandName(brandName);

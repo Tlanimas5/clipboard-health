@@ -6,10 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LandingPage {
+public class LandingPage{
 	
 	WebDriver driver;
 	
@@ -19,9 +20,11 @@ public class LandingPage {
 		this.driver=driver;
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		
+		PageFactory.initElements(driver, this);
+		
 	}
 	
-	//Locator for Elements on the Landing_Page
+	//Locator for Elements on the Landing_Pages
 	By navLogo = By.id("nav-logo-sprites");
 	By pageMenu = By.id("nav-hamburger-menu");
 	String customerName = "hmenu-customer-name";
@@ -30,9 +33,10 @@ public class LandingPage {
 	String newline = System.lineSeparator();
 	
 	//Method to capture the page title
-	public void getPageTitle(String title) {
+	public String getPageTitle(String title) {
 		String pageTitle = driver.getTitle();
-		assert pageTitle.matches(title);
+		return pageTitle;
+		//assert pageTitle.matches(title);
 		
 	}
 	
@@ -43,10 +47,11 @@ public class LandingPage {
 	}
 	
 	//verify menu is open and navigate to the brand section;
-	public void customerName(String namme) {
+	public String customerName(String namme) {
 		WebElement name = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(customerName)));
 		String getName = name.getText();
-		assert getName == namme;
+		return getName;
+		//ssert getName == namme;
 	}
 	
 	

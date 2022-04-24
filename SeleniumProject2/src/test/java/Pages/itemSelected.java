@@ -7,10 +7,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class itemSelected {
+import helpers.BrowserSetup;
+
+public class itemSelected{
 	
 	WebDriver driver;
 	
@@ -19,6 +22,8 @@ public class itemSelected {
 	public itemSelected(WebDriver driver) {
 		this.driver=driver;
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
+		PageFactory.initElements(driver, this);
 		
 	}
 	

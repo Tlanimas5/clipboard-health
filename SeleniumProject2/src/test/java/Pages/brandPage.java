@@ -6,9 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class brandPage {
 
@@ -19,6 +21,8 @@ public class brandPage {
 	public brandPage(WebDriver driver) {
 		this.driver=driver;
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		
+		PageFactory.initElements(driver, this);
 	}
 
 	//Locator for Elements on the brand_Page
@@ -29,9 +33,10 @@ public class brandPage {
 
 
 	//Verify user is on page with Televisions
-	public void getCategoryTitle(String title) {
+	public String getCategoryTitle(String title) {
 		String pageTitle = driver.getTitle();
-		assert pageTitle.matches(title);
+		return pageTitle;
+		//assert pageTitle.matches(title);
 
 	}
 
@@ -44,8 +49,10 @@ public class brandPage {
 		System.out.print("Validated "+nameOfBrand+" is clicked"+newline);
 
 		//verify brand is checked
+		
 		WebElement brandChecked = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='a-size-base a-color-base a-text-bold'][normalize-space()='"+nameOfBrand+"']")));
 		js.executeScript("arguments[0].scrollIntoView();", brandChecked);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='a-size-base a-color-base a-text-bold'][normalize-space()='"+nameOfBrand+"']")));
 		assert brand.isSelected();
 		System.out.print("validated "+nameOfBrand+" is checked"+newline);
 	}
