@@ -4,7 +4,7 @@
 - Created: April 2022
 - Scope: Selenium web automation on Amazon.in to retrieve "About Item" details of a Product
 
-**SRC folders (src/test/java)
+## SRC folders (src/test/java)
 - Pages: contains page models with page web elements and actions utilized by test classes
 - testCases: contains test case with the test class
 
@@ -20,6 +20,10 @@
 - Follow the steps to add the repository
 - Create a Java project in Eclipse
 - Right click on Project - Team - Share
-- Select repo from dropdown list provided
-- Refresh Project
+- Pull from Repository
+- Verify Maven dependencies are available
+- Navigate to src/test/java
+- Open testCases
+- Right Click and  getProductAboutDetails.java as Java application
+- View Console for Results
 
