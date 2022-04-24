@@ -17,10 +17,10 @@
 
 ## Getting Started
 
-> Install and Open Eclipse
-> Go to Perspective - Git Repositories and click on Add Git Repo
-> Follow the steps to add the repository
-> Create a Java project in Eclipse
-> Right click on Project - Team - Share - Add to git repo
-> Refresh Project
+**Install and Open Eclipse**
+**Go to Perspective - Git Repositories and click on Add Git Repo**
+**Follow the steps to add the repository**
+**Create a Java project in Eclipse**
+**Right click on Project - Team - Share - Add to git repo**
+**Refresh Project**
 
